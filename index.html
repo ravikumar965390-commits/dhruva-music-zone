@@ -3,168 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>DHRUVA MUSIC ZONE</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
+*{box-sizing:border-box}
 body{
-    font-family:Arial,sans-serif;
-    background:#08080f;
-    color:white;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#0d0b18;
+  color:white;
 }
-
 header{
-    background:linear-gradient(135deg,#17112d,#4b168a);
-    padding:28px 15px;
-    text-align:center;
+  padding:28px 15px;
+  text-align:center;
+  background:linear-gradient(135deg,#35106b,#711c8f);
 }
-
-header h1{
-    font-size:30px;
-    letter-spacing:2px;
-}
-
-header p{
-    margin-top:8px;
-    color:#d2d2d2;
-}
-
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:20px;
-}
+header h1{margin:0;font-size:30px}
+header p{margin:8px 0 0;color:#ddd}
 
 .search{
-    width:100%;
-    padding:16px;
-    border:1px solid #292936;
-    border-radius:12px;
-    background:#15151f;
-    color:white;
-    font-size:16px;
-    outline:none;
-    margin-bottom:18px;
+  padding:20px 15px;
+  text-align:center;
+}
+.search input{
+  width:100%;
+  max-width:600px;
+  padding:15px;
+  border:0;
+  border-radius:30px;
+  font-size:16px;
+  outline:none;
 }
 
 .categories{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    margin-bottom:20px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:0 15px 20px;
 }
-
 .categories button{
-    border:none;
-    background:#1b1b27;
-    color:white;
-    padding:10px 17px;
-    border-radius:25px;
-    cursor:pointer;
-    white-space:nowrap;
+  padding:10px 18px;
+  border:1px solid #8e45b5;
+  border-radius:20px;
+  background:#191328;
+  color:white;
+  cursor:pointer;
 }
-
 .categories button:hover{
-    background:#7437e8;
+  background:#8e45b5;
 }
 
-.player{
-    width:100%;
-    margin-bottom:20px;
+.music-list{
+  max-width:850px;
+  margin:auto;
+  padding:10px 15px 40px;
 }
 
 .song{
-    display:flex;
-    align-items:center;
-    gap:13px;
-    background:#15151f;
-    padding:13px;
-    margin-bottom:10px;
-    border-radius:14px;
-}
-
-.cover{
-    width:55px;
-    height:55px;
-    min-width:55px;
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:25px;
-    background:linear-gradient(135deg,#7b2fe0,#e83e8c);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:18px;
+  margin-bottom:12px;
+  background:#181426;
+  border:1px solid #29223b;
+  border-radius:15px;
 }
 
 .song-info{
-    flex:1;
-    min-width:0;
+  min-width:0;
 }
-
 .song-info h3{
-    font-size:16px;
-    margin-bottom:5px;
+  margin:0 0 6px;
+  font-size:18px;
 }
-
 .song-info p{
-    color:#999;
-    font-size:13px;
+  margin:0;
+  color:#aaa;
+  font-size:14px;
 }
 
-.btn{
-    border:none;
-    text-decoration:none;
-    color:white;
-    background:#6933d5;
-    padding:9px 12px;
-    border-radius:9px;
-    cursor:pointer;
-    font-size:13px;
+.actions{
+  display:flex;
+  gap:8px;
 }
-
-.btn:hover{
-    background:#874ff0;
+.actions button{
+  border:0;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
 }
-
+.play{
+  background:#8e45b5;
+  color:white;
+}
 .download{
-    background:#168a55;
+  background:#2d9d63;
+  color:white;
 }
 
-.download:hover{
-    background:#20ad6d;
+.player-box{
+  position:sticky;
+  bottom:0;
+  background:#110e1d;
+  padding:15px;
+  border-top:1px solid #332842;
 }
-
-.empty{
-    text-align:center;
-    color:#888;
-    padding:30px;
+audio{
+  width:100%;
+  max-width:850px;
+  display:block;
+  margin:auto;
 }
 
 footer{
-    text-align:center;
-    color:#777;
-    font-size:13px;
-    padding:30px 10px;
+  text-align:center;
+  padding:25px 15px;
+  color:#888;
+  font-size:13px;
 }
 
 @media(max-width:600px){
-    .song{
-        flex-wrap:wrap;
-    }
-
-    .song-info{
-        width:calc(100% - 70px);
-    }
-
-    .btn{
-        flex:1;
-        text-align:center;
-    }
+  .song{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .actions{
+    width:100%;
+  }
+  .actions button{
+    flex:1;
+  }
 }
 </style>
 </head>
@@ -172,169 +144,131 @@ footer{
 <body>
 
 <header>
-    <h1>🎵 DHRUVA MUSIC ZONE</h1>
-    <p>Listen • Discover • Download</p>
+  <h1>🎵 DHRUVA MUSIC ZONE</h1>
+  <p>Listen • Discover • Enjoy Music</p>
 </header>
 
-<div class="container">
+<div class="search">
+  <input type="text" id="search" placeholder="🔍 Search song or artist...">
+</div>
 
-    <input
-        type="text"
-        id="search"
-        class="search"
-        placeholder="🔍 Song, artist ya album search karein..."
-    >
+<div class="categories">
+  <button onclick="showCategory('All')">All</button>
+  <button onclick="showCategory('Hindi')">Hindi</button>
+  <button onclick="showCategory('English')">English</button>
+  <button onclick="showCategory('Instrumental')">Instrumental</button>
+</div>
 
-    <div class="categories">
-        <button onclick="category('All')">All</button>
-        <button onclick="category('Hindi')">Hindi</button>
-        <button onclick="category('English')">English</button>
-        <button onclick="category('Instrumental')">Instrumental</button>
-    </div>
+<div class="music-list" id="musicList"></div>
 
-    <audio id="player" class="player" controls></audio>
-
-    <div id="songs"></div>
-
+<div class="player-box">
+  <audio id="player" controls></audio>
 </div>
 
 <footer>
-    © 2026 DHRUVA MUSIC ZONE
+  © 2026 DHRUVA MUSIC ZONE
 </footer>
 
 <script>
 
 const music = [
 
-    {
-        title:"Apna Song 1",
-        artist:"Artist Name",
-        album:"Album Name",
-        category:"Hindi",
-        file:"songs/song1.mp3"
-    },
+  {
+    title:"Hindi Music",
+    artist:"DHRUVA MUSIC ZONE",
+    category:"Hindi",
+    file:"songs/song1.mp3"
+  },
 
-    {
-        title:"Apna Song 2",
-        artist:"Artist Name",
-        album:"Album Name",
-        category:"Hindi",
-        file:"songs/song2.mp3"
-    },
+  {
+    title:"English Music",
+    artist:"DHRUVA MUSIC ZONE",
+    category:"English",
+    file:"songs/song2.mp3"
+  },
 
-    {
-        title:"My Music",
-        artist:"Artist Name",
-        album:"My Album",
-        category:"English",
-        file:"songs/song3.mp3"
-    },
-
-    {
-        title:"Peaceful Music",
-        artist:"Artist Name",
-        album:"Instrumental",
-        category:"Instrumental",
-        file:"songs/song4.mp3"
-    }
+  {
+    title:"Peaceful Instrumental",
+    artist:"DHRUVA MUSIC ZONE",
+    category:"Instrumental",
+    file:"songs/song3.mp3"
+  }
 
 ];
 
-let selectedCategory="All";
+const list = document.getElementById("musicList");
+const player = document.getElementById("player");
+const search = document.getElementById("search");
 
-function playSong(index){
+function displaySongs(data){
 
-    const player=document.getElementById("player");
+  list.innerHTML="";
 
-    player.src=music[index].file;
+  if(data.length===0){
+    list.innerHTML="<p style='text-align:center;color:#aaa'>No music found.</p>";
+    return;
+  }
 
-    player.play();
+  data.forEach(song=>{
 
+    const div=document.createElement("div");
+    div.className="song";
+
+    div.innerHTML=`
+      <div class="song-info">
+        <h3>🎵 ${song.title}</h3>
+        <p>${song.artist} • ${song.category}</p>
+      </div>
+
+      <div class="actions">
+        <button class="play" onclick="playSong('${song.file}')">
+          ▶ Play
+        </button>
+
+        <a href="${song.file}" download>
+          <button class="download">
+            ⬇ Download
+          </button>
+        </a>
+      </div>
+    `;
+
+    list.appendChild(div);
+
+  });
 }
 
-function category(cat){
-
-    selectedCategory=cat;
-
-    displaySongs();
-
+function playSong(file){
+  player.src=file;
+  player.play();
 }
 
-function displaySongs(){
+function showCategory(category){
 
-    const searchText=
-        document.getElementById("search")
-        .value
-        .toLowerCase();
+  if(category==="All"){
+    displaySongs(music);
+    return;
+  }
 
-    const list=document.getElementById("songs");
-
-    const filtered=music
-        .map((song,index)=>({...song,index}))
-        .filter(song=>{
-
-            const matchesCategory=
-                selectedCategory==="All" ||
-                song.category===selectedCategory;
-
-            const text=
-                (song.title+" "+
-                 song.artist+" "+
-                 song.album).toLowerCase();
-
-            return matchesCategory &&
-                   text.includes(searchText);
-
-        });
-
-    if(filtered.length===0){
-
-        list.innerHTML=
-            '<div class="empty">😔 Song nahi mila</div>';
-
-        return;
-    }
-
-    list.innerHTML=filtered.map(song=>`
-
-        <div class="song">
-
-            <div class="cover">♪</div>
-
-            <div class="song-info">
-
-                <h3>${song.title}</h3>
-
-                <p>
-                    ${song.artist} • ${song.album}
-                </p>
-
-            </div>
-
-            <button
-                class="btn"
-                onclick="playSong(${song.index})">
-                ▶ Play
-            </button>
-
-            <a
-                class="btn download"
-                href="${song.file}"
-                download>
-                ⬇ Download
-            </a>
-
-        </div>
-
-    `).join("");
-
+  displaySongs(
+    music.filter(song=>song.category===category)
+  );
 }
 
-document
-    .getElementById("search")
-    .addEventListener("input",displaySongs);
+search.addEventListener("input",function(){
 
-displaySongs();
+  const text=this.value.toLowerCase();
+
+  displaySongs(
+    music.filter(song=>
+      song.title.toLowerCase().includes(text) ||
+      song.artist.toLowerCase().includes(text)
+    )
+  );
+
+});
+
+displaySongs(music);
 
 </script>
 
